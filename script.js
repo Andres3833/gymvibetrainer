@@ -156,7 +156,7 @@ function actualizarContadores(){
 
     nombreEjercicio.textContent =
         ejercicio.nombre;
-    repeticionesEjercicio.textContent = `Objetivo: $ {ejercicio.repeticiones} reps`;
+    repeticionesEjercicio.textContent = `Objetivo: ${ejercicio.repeticiones} reps`;
     
     serieActualEl.textContent =
         `Serie ${estado.serie} / ${ejercicio.series}`;

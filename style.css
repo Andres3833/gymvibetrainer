@@ -170,6 +170,19 @@ header p{
 
 }
 
+#repeticiones-ejercicio{
+    text-align:center;
+
+    color:#ffd54f;
+
+    margin-top:10px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}    
+
 #peso-ejercicio{
 
     text-align:center;

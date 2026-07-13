@@ -23,6 +23,7 @@ const tituloDia = document.getElementById("titulo-dia");
 const siguienteEjercicio = document.getElementById("siguiente-ejercicio");
 const timer = document.getElementById("temporizador");
 const progreso = document.getElementById("progreso");
+const repeticionesEjercicio = document.getElementById("repeticiones-ejercicio");
 
 // ============ RUTINAS ============
 const rutinas = {
@@ -31,12 +32,12 @@ const rutinas = {
         nombre:"Empuje",
 
         ejercicios:[
-            {nombre:"Press de banca",series:4,descanso:60,peso:""},
-            {nombre:"Press inclinado",series:4,descanso:60,peso:""},
-            {nombre:"Aperturas",series:3,descanso:45,peso:""},
-            {nombre:"Press militar",series:4,descanso:60,peso:""},
-            {nombre:"Laterales",series:3,descanso:45,peso:""},
-            {nombre:"Tríceps polea",series:3,descanso:45,peso:""}
+            {nombre:"Press de banca",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Press inclinado",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Aperturas",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Press militar",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Laterales",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Tríceps polea",series:4,repeticiones:"10-12",descanso:60,peso:""}
         ]
     },
 
@@ -44,12 +45,12 @@ const rutinas = {
         nombre:"Jalón",
 
         ejercicios:[
-            {nombre:"Dominadas",series:4,descanso:60,peso:""},
-            {nombre:"Remo",series:4,descanso:60,peso:""},
-            {nombre:"Pullover",series:3,descanso:45,peso:""},
-            {nombre:"Curl barra",series:4,descanso:60,peso:""},
-            {nombre:"Martillo",series:3,descanso:45,peso:""},
-            {nombre:"Face Pull",series:3,descanso:45,peso:""}
+            {nombre:"Dominadas",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Remo",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Pullover",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Curl barra",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Martillo",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Face Pull",series:4,repeticiones:"10-12",descanso:60,peso:""}
         ]
     },
 
@@ -57,12 +58,12 @@ const rutinas = {
         nombre:"Pierna",
 
         ejercicios:[
-            {nombre:"Sentadilla",series:4,descanso:90,peso:""},
-            {nombre:"Prensa",series:4,descanso:90,peso:""},
-            {nombre:"Peso muerto rumano",series:4,descanso:90,peso:""},
-            {nombre:"Extensión",series:3,descanso:60,peso:""},
-            {nombre:"Femoral",series:3,descanso:60,peso:""},
-            {nombre:"Pantorrilla",series:4,descanso:45,peso:""}
+            {nombre:"Sentadilla",series:4,repeticiones:"10-12",descanso:90,peso:""},
+            {nombre:"Prensa",series:4,repeticiones:"10-12",descanso:90,peso:""},
+            {nombre:"Peso muerto rumano",repeticiones:"10-12",series:4,descanso:90,peso:""},
+            {nombre:"Extensión",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Femoral",series:4,repeticiones:"10-12",descanso:60,peso:""},
+            {nombre:"Pantorrilla",series:4,repeticiones:"10-12",descanso:60,peso:""}
         ]
     }
 
@@ -155,7 +156,8 @@ function actualizarContadores(){
 
     nombreEjercicio.textContent =
         ejercicio.nombre;
-
+    repeticionesEjercicio.textContent = `Objetivo: ${ejercicio.repeticiones} reps`;
+    
     serieActualEl.textContent =
         `Serie ${estado.serie} / ${ejercicio.series}`;
 

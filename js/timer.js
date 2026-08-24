@@ -1,112 +1,86 @@
 class Timer {
-
     constructor() {
-
         this.tiempo = 0;
         this.intervalo = null;
         this.enEjecucion = false;
-
         this.onTick = null;
         this.onFinish = null;
-
     }
 
     iniciar(segundos) {
-
         this.detener();
 
-        this.tiempo = segundos;
+        this.tiempo = Number(segundos) || 0;
         this.enEjecucion = true;
 
         if (this.onTick) {
-
             this.onTick(this.tiempo);
-
         }
 
         this.intervalo = setInterval(() => {
-
             this.tiempo--;
 
             if (this.onTick) {
-
                 this.onTick(this.tiempo);
-
             }
 
             if (this.tiempo <= 0) {
-
+                const callback = this.onFinish;
                 this.detener();
 
-                if (this.onFinish) {
-
-                    this.onFinish();
-
+                if (callback) {
+                    callback();
                 }
-
             }
-
-        },1000);
-
+        }, 1000);
     }
 
     detener() {
-
-        clearInterval(this.intervalo);
-
+        if (this.intervalo !== null) {
+            clearInterval(this.intervalo);
+            this.intervalo = null;
+        }
         this.enEjecucion = false;
-
     }
 
     pausar() {
+        if (!this.enEjecucion || this.intervalo === null) return;
 
         clearInterval(this.intervalo);
-
+        this.intervalo = null;
     }
 
     reanudar() {
+        if (!this.enEjecucion || this.intervalo !== null) return;
 
-        if(this.enEjecucion===false)return;
-
-        this.intervalo=setInterval(()=>{
-
+        this.intervalo = setInterval(() => {
             this.tiempo--;
 
-            if(this.onTick){
-
+            if (this.onTick) {
                 this.onTick(this.tiempo);
-
             }
 
-            if(this.tiempo<=0){
-
+            if (this.tiempo <= 0) {
+                const callback = this.onFinish;
                 this.detener();
 
-                if(this.onFinish){
-
-                    this.onFinish();
-
+                if (callback) {
+                    callback();
                 }
-
             }
-
-        },1000);
-
+        }, 1000);
     }
 
+    saltar() {
+        if (!this.enEjecucion) return;
+
+        const callback = this.onFinish;
+        this.detener();
+
+        if (callback) {
+            callback();
+        }
+    }
 }
 
 const timer = new Timer();
-
-// =========Sonido===============
-//const audioDescanso = new Audio("audio/descanso.mp3");
-
-//function reproducirSonido(){
-
-    //audioDescanso.currentTime = 0;
-    //audioDescanso.play().catch(error=>{
-
-        //console.log("No se pudo reproducir el sonido: ",error);
-    //});
-
-//} 

@@ -140,6 +140,52 @@ header p{
 
 }
 
+/* =========================
+   TARJETAS DE EJERCICIOS
+   ========================= */
+
+.editor-ejercicio {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #ff9800;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 16px 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.editor-ejercicio h4 {
+    margin: 0 0 16px 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.editor-ejercicio label {
+    display: block;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.editor-ejercicio input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 11px 12px;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+}
+
+.editor-ejercicio input:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.15);
+}
+
 /*========================*/
 
 #titulo-dia{
@@ -395,4 +441,183 @@ footer{
 
     transform:scale(.94);
 
+}
+
+/* =========================
+   EDITOR DE EJERCICIOS
+   ========================= */
+
+.editor-ejercicio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #ff9800;
+    border-radius: 14px;
+
+    padding: 18px;
+    margin: 16px 0;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.editor-ejercicio h4 {
+    grid-column: 1 / -1;
+
+    margin: 0 0 4px 0;
+
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.editor-ejercicio label {
+    display: block;
+
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.editor-ejercicio label:first-of-type {
+    grid-column: 1 / -1;
+}
+
+.editor-ejercicio input {
+    display: block;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 6px;
+    padding: 11px 12px;
+
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+
+    font-size: 1rem;
+    outline: none;
+}
+
+.editor-ejercicio input:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.15);
+}
+
+/* En celular: una sola columna */
+@media (max-width: 600px) {
+    .editor-ejercicio {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-ejercicio label:first-of-type {
+        grid-column: auto;
+    }
+}
+
+.descanso-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.descanso-input input {
+    flex: 1;
+    margin-top: 0;
+}
+
+.descanso-input span {
+    white-space: nowrap;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* =========================
+   ACCIONES DEL EDITOR
+   ========================= */
+
+.editor-acciones {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 10px;
+}
+
+.btn-guardar-editor {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #ff9800;
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.15s ease,
+                opacity 0.15s ease;
+}
+
+.btn-guardar-editor:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-guardar-editor:active {
+    transform: scale(0.98);
+}
+
+.btn-agregar-editor {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #3b4658;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-agregar-editor:hover {
+    background: #4b5870;
+    transform: translateY(-1px);
+}
+
+.btn-agregar-editor:active {
+    transform: translateY(0);
+}
+
+.btn-eliminar-editor {
+    width: 100%;
+    padding: 10px 16px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #4a3a3a;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-eliminar-editor:hover {
+    background: #633f3f;
+}
+
+.btn-eliminar-editor:active {
+    transform: scale(0.98);
 }

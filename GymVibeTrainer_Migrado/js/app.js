@@ -6,7 +6,7 @@ class GymVibeApp {
         this.serieActual = 1;
         this.descansando = false;
         this.pausado = false;
-        this.modoPrueba = true;
+        this.modoPrueba = false;
         const rutinasGuardadas = storage.cargar("rutinas", null);
 
         if (rutinasGuardadas) {

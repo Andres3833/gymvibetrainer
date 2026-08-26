@@ -161,7 +161,7 @@ function actualizarContadores(){
 
 }
 
-    const MODO_PRUEBA = false;
+    const MODO_PRUEBA = true; // Cambiar a false para desactivar el modo de prueba
 
 
 btnSerie.addEventListener("click",()=>{
